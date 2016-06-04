@@ -38,6 +38,15 @@ function tokenizer (input) {
       continue
     }
 
+    if (token === '[' || token === ']') {
+      tokens.push({
+        type: 'argumentList',
+        char: token
+      })
+      current++
+      continue
+    }
+
     if (token === ' ') {
       // ignore
       current++

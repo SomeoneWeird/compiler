@@ -16,7 +16,6 @@ module.exports = function compiler(input) {
   // transform
   var newAST = transformAST(ast)
 
-
   // to JS
   var JS = escodegen.generate(newAST)
 

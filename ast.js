@@ -51,7 +51,48 @@ function toAST (tokens) {
         }
 
         case 'Identifier': {
-          out.push(token)
+          if (token.value !== 'def') {
+            out.push(token)
+            continue
+          }
+
+          var fnNameToken = tokens[current++]
+
+          if (fnNameToken.type !== 'Identifier') {
+            throw new Error('function names must be strings')
+          }
+
+          var args = []
+
+          var argumentListStartToken = tokens[current]
+
+          if (argumentListStartToken.type !== 'argumentList' || argumentListStartToken.char !== '[') {
+            throw new Error('Argument list must start with [')
+          }
+
+          current++
+
+          while(true) {
+            var next = tokens[current + args.length]
+            if (next.type === 'argumentList' && next.char === ']') {
+              break
+            }
+            args.push(next)
+          }
+
+          current += args.length
+
+          out.push({
+            type: 'FunctionDeclaration',
+            name: fnNameToken.value,
+            arguments: args,
+            function: walk()
+          })
+
+          continue
+        }
+
+        case 'argumentList': {
           continue
         }
 
