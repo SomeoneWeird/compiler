@@ -12,6 +12,14 @@ function tokenizer (input) {
   while (current < input.length) {
     var token = input[current]
 
+    if (token === "'") {
+      tokens.push({
+        type: 'StringIdentifier'
+      })
+      current++
+      continue
+    }
+
     if (token === '(') {
       tokens.push({
         type: 'paren',
@@ -49,7 +57,7 @@ function tokenizer (input) {
         }
       }
       tokens.push({
-        type: 'StringLiteral',
+        type: 'Identifier',
         value: str
       })
       current += str.length

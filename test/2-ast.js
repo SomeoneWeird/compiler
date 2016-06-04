@@ -16,8 +16,19 @@ describe('ast', function () {
     })
   })
 
-  it('should generate ast for basic string', function () {
+  it('should generate ast for basic identifier', function () {
     var tokens = tokenizer('hello')
+    assert.deepEqual(ast(tokens), {
+      type: 'Program',
+      body: [ {
+        type: 'Identifier',
+        value: 'hello'
+      } ]
+    })
+  })
+
+  it('should generate ast for basic string', function () {
+    var tokens = tokenizer("'hello'")
     assert.deepEqual(ast(tokens), {
       type: 'Program',
       body: [ {
@@ -36,7 +47,7 @@ describe('ast', function () {
         function: 'hello',
         params: [
           {
-            type: 'StringLiteral',
+            type: 'Identifier',
             value: 'world'
           },
           {

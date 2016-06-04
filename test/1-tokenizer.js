@@ -5,7 +5,7 @@ var tokenizer = require('../tokenizer')
 describe('tokenizer', function () {
   var tests = {
     'hello': [ {
-      type: 'StringLiteral',
+      type: 'Identifier',
       value: 'hello'
     }],
     '32': [ {
@@ -16,7 +16,7 @@ describe('tokenizer', function () {
       type: 'paren',
       paren: '('
     }, {
-      type: 'StringLiteral',
+      type: 'Identifier',
       value: 'hello'
     }, {
       type: 'NumberLiteral',
@@ -24,6 +24,38 @@ describe('tokenizer', function () {
     }, {
       type: 'NumberLiteral',
       value: '21'
+    }, {
+      type: 'paren',
+      paren: ')'
+    } ],
+    "'hello'": [ {
+      type: 'StringIdentifier'
+    }, {
+      type: 'Identifier',
+      value: 'hello'
+    }, {
+      type: 'StringIdentifier'
+    } ],
+    "concat('hello' 'world')": [ {
+      type: 'Identifier',
+      value: 'concat'
+    }, {
+      type: 'paren',
+      paren: '('
+    }, {
+      type: 'StringIdentifier'
+    }, {
+      type: 'Identifier',
+      value: 'hello'
+    }, {
+      type: 'StringIdentifier'
+    }, {
+      type: 'StringIdentifier'
+    }, {
+      type: 'Identifier',
+      value: 'world'
+    }, {
+      type: 'StringIdentifier'
     }, {
       type: 'paren',
       paren: ')'
