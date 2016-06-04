@@ -18,9 +18,7 @@ function transformAST (ast) {
         },
         arguments: node.params.map(function(child) {
           return visit(child, node)
-        }).map(toIdentifier)
-        // TOOD: previous line only has map to get function declarations working
-        //       remove when possible
+        })
       }
       if (parent.type === 'Program') {
         out = {
