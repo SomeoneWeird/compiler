@@ -59,6 +59,10 @@ describe('tokenizer', function () {
     }, {
       type: 'paren',
       paren: ')'
+    } ],
+    '123.23': [ {
+      type: 'FloatLiteral',
+      value: "123.23"
     } ]
   }
 

@@ -16,6 +16,17 @@ describe('ast', function () {
     })
   })
 
+  it('should generate ast for basic float', function () {
+    var tokens = tokenizer('1.2')
+    assert.deepEqual(ast(tokens), {
+      type: 'Program',
+      body: [ {
+        type: 'FloatLiteral',
+        value: '1.2'
+      } ]
+    })
+  })
+
   it('should generate ast for basic identifier', function () {
     var tokens = tokenizer('hello')
     assert.deepEqual(ast(tokens), {

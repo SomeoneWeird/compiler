@@ -50,6 +50,11 @@ function toAST (tokens) {
           continue
         }
 
+        case 'FloatLiteral': {
+          out.push(token)
+          continue
+        }
+
         case 'Identifier': {
           if (token.value !== 'def') {
             out.push(token)

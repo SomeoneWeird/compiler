@@ -77,16 +77,23 @@ function tokenizer (input) {
 
     if (numberMatch.test(token)) {
       var str = ''
+      type = "NumberLiteral"
       while(true) {
         var next = input[current + str.length]
         if (next && numberMatch.test(next)) {
           str += next
         } else {
-          break
+          if (next === '.') {
+            type = "FloatLiteral"
+            str += next
+          }
+          else {
+            break
+          }
         }
       }
       tokens.push({
-        type: 'NumberLiteral',
+        type: type,
         value: str
       })
       current += str.length
