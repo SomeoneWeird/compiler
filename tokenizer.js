@@ -20,16 +20,7 @@ function tokenizer (input) {
       continue
     }
 
-    if (token === '(') {
-      tokens.push({
-        type: 'paren',
-        paren: token
-      })
-      current++
-      continue
-    }
-
-    if (token === ')') {
+    if (token === '(' || token === ')') {
       tokens.push({
         type: 'paren',
         paren: token
