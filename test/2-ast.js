@@ -4,7 +4,7 @@ var tokenizer = require('../tokenizer')
 var ast = require('../ast')
 
 describe('ast', function () {
-  
+
   it('should generate ast for basic number', function() {
     var tokens = tokenizer('42')
     assert.deepEqual(ast(tokens), {
@@ -79,5 +79,35 @@ describe('ast', function () {
         } ]
       } ]
     })
+  })
+
+  it('should generate ast for consecutive lines', function() {
+    var tokens = ['(hello 1 2)', '(add 2 3)'].map(tokenizer).reduce((acc, l) => acc.concat(l), [])
+    var out = ast(tokens)
+    var expected = {
+      type: "Program",
+      body: [ {
+        type: 'CallExpression',
+        function: 'hello',
+        params: [ {
+          type: 'NumberLiteral',
+          value: '1'
+        }, {
+          type: 'NumberLiteral',
+          value: '2'
+        } ]
+      }, {
+        type: 'CallExpression',
+        function: 'add',
+        params: [ {
+          type: 'NumberLiteral',
+          value: '2'
+        }, {
+          type: 'NumberLiteral',
+          value: '3'
+        } ]
+      } ]
+    }
+    assert.deepEqual(out, expected)
   })
 })

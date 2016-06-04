@@ -1,25 +1,25 @@
-var fs = require('fs')
-
 var escodegen = require('escodegen')
 
 var tokenizer = require('./tokenizer')
 var toAST = require('./ast')
 var transformAST = require('./transform')
 
-var input = fs.readFileSync('./example.lisp').toString()
+module.exports = function compiler(input) {
 
-// tokenizer
-var tokens = tokenizer(input)
+  // tokenizer
+  var lines = input.split('\n').filter((l) => l.length > 0)
+  var line_tokens = lines.map(tokenizer).reduce((acc, l) => acc.concat(l), [])
 
-// lexer
-var ast = toAST(tokens)
+  // lexer
+  var ast = toAST(line_tokens)
 
-// transform
-var newAST = transformAST(ast)
+  // transform
+  var newAST = transformAST(ast)
 
-console.log(JSON.stringify(newAST, null, 2))
 
-// to JS
-var JS = escodegen.generate(newAST)
+  // to JS
+  var JS = escodegen.generate(newAST)
 
-console.log(JS)
+  return JS
+}
+

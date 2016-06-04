@@ -23,8 +23,7 @@ function toAST (tokens) {
             })
             continue
           } else {
-            current++
-            continue
+            return out
           }
         }
 
