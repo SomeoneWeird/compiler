@@ -3,7 +3,7 @@
 var fs = require('fs')
 var path = require('path')
 
-var compiler = require('../compiler')
+var compiler = require('../lib/compiler')
 
 var p = process.argv[2]
 

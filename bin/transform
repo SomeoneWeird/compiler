@@ -2,9 +2,9 @@
 var fs = require('fs')
 var path = require('path')
 
-var tokenizer = require('../tokenizer')
-var ast = require('../ast')
-var transform = require('../transform')
+var tokenizer = require('../lib/tokenizer')
+var ast = require('../lib/ast')
+var transform = require('../lib/transform')
 
 var p = process.argv[2]
 
