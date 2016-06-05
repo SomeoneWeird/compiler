@@ -33,7 +33,7 @@ describe('ast', function () {
       type: 'Program',
       body: [ {
         type: 'Identifier',
-        value: 'hello'
+        name: 'hello'
       } ]
     })
   })
@@ -59,7 +59,7 @@ describe('ast', function () {
         params: [
           {
             type: 'Identifier',
-            value: 'world'
+            name: 'world'
           },
           {
             type: 'NumberLiteral',

@@ -12,6 +12,7 @@
     "escodegen": "^1.8.0"
   },
   "devDependencies": {
+    "esprima": "^2.7.2",
     "mocha": "^2.5.3"
   }
 }
