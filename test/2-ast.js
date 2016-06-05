@@ -70,6 +70,26 @@ describe('ast', function () {
     })
   })
 
+  it('should generate ast for basic array', function () {
+    var tokens = tokenizer('[ 1 2.3 4 ]')
+    assert.deepEqual(ast(tokens), {
+      type: 'Program',
+      body: [ {
+        type: 'Array',
+        values: [ {
+          type: 'NumberLiteral',
+          value: 1
+        }, {
+          type: 'FloatLiteral',
+          value: 2.3
+        }, {
+          type: 'NumberLiteral',
+          value: 4
+        } ]
+      } ]
+    })
+  })
+
   it('should generate ast for nested function calls', function () {
     var tokens = tokenizer('(hello (world (subtract 4 (add 5 1))))')
     assert.deepEqual(ast(tokens), {

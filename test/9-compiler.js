@@ -25,4 +25,18 @@ describe('compiler', function() {
     assert.equal(output, expected)
   })
 
+  describe('arrays', function () {
+
+    it('should compile arrays containing numbers', function () {
+      var script = '[ 1 2.3 4 ]'
+      assert.equal(compiler(script), '[\n    1,\n    2.3,\n    4\n];')
+    })
+
+    it('should compile arrays containing strings', function () {
+      var script = "[ 'hello' 'world' '1234' ]\n"
+      assert.equal(compiler(script), "[\n    'hello',\n    'world',\n    '1234'\n];")
+    })
+
+  })
+
 })

@@ -67,6 +67,38 @@ describe('tokenizer', function () {
     'log1': [ {
       type: 'Identifier',
       name: 'log1'
+    } ],
+    '[ 1 2.3 4 ]': [ {
+      type: 'ArrayIdentifier',
+      char: '['
+    }, {
+      type: 'NumberLiteral',
+      value: '1'
+    }, {
+      type: 'FloatLiteral',
+      value: '2.3'
+    }, {
+      type: 'NumberLiteral',
+      value: '4'
+    }, {
+      type: 'ArrayIdentifier',
+      char: ']'
+    } ],
+    "[ 'hello world' 4 4.2 ]": [ {
+      type: 'ArrayIdentifier',
+      char: '['
+    }, {
+      type: 'StringLiteral',
+      value: 'hello world'
+    }, {
+      type: 'NumberLiteral',
+      value: "4"
+    }, {
+      type: 'FloatLiteral',
+      value: "4.2"
+    }, {
+      type: 'ArrayIdentifier',
+      char: ']'
     } ]
   }
 
