@@ -18,4 +18,11 @@ describe('compiler', function() {
     assert.equal(output, expected)
   })
 
+  it('should compile a function with identifier with mixed characters', function() {
+    var script = 'def log1 [a b] (add a b)'
+    var output = compiler(script)
+    var expected = "function log1(a, b) {\n    return add(a, b);\n}"
+    assert.equal(output, expected)
+  })
+
 })

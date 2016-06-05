@@ -17,7 +17,7 @@ describe('tokenizer', function () {
       paren: '('
     }, {
       type: 'Identifier',
-      value: 'hello'
+      name: 'hello'
     }, {
       type: 'NumberLiteral',
       value: '3'
@@ -32,13 +32,13 @@ describe('tokenizer', function () {
       type: 'StringIdentifier'
     }, {
       type: 'Identifier',
-      value: 'hello'
+      name: 'hello'
     }, {
       type: 'StringIdentifier'
     } ],
     "concat('hello' 'world')": [ {
       type: 'Identifier',
-      value: 'concat'
+      name: 'concat'
     }, {
       type: 'paren',
       paren: '('
@@ -46,14 +46,14 @@ describe('tokenizer', function () {
       type: 'StringIdentifier'
     }, {
       type: 'Identifier',
-      value: 'hello'
+      name: 'hello'
     }, {
       type: 'StringIdentifier'
     }, {
       type: 'StringIdentifier'
     }, {
       type: 'Identifier',
-      value: 'world'
+      name: 'world'
     }, {
       type: 'StringIdentifier'
     }, {
@@ -63,6 +63,10 @@ describe('tokenizer', function () {
     '123.23': [ {
       type: 'FloatLiteral',
       value: "123.23"
+    } ],
+    'log1': [ {
+      type: 'Identifier',
+      name: 'log1'
     } ]
   }
 
