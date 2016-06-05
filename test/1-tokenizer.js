@@ -13,8 +13,8 @@ describe('tokenizer', function () {
       value: '32'
     }],
     '(hello 3 21)': [ {
-      type: 'paren',
-      paren: '('
+      type: 'Parenthesis',
+      value: '('
     }, {
       type: 'Identifier',
       name: 'hello'
@@ -25,8 +25,8 @@ describe('tokenizer', function () {
       type: 'NumberLiteral',
       value: '21'
     }, {
-      type: 'paren',
-      paren: ')'
+      type: 'Parenthesis',
+      value: ')'
     } ],
     "'hello'": [ {
       type: 'StringIdentifier'
@@ -40,8 +40,8 @@ describe('tokenizer', function () {
       type: 'Identifier',
       name: 'concat'
     }, {
-      type: 'paren',
-      paren: '('
+      type: 'Parenthesis',
+      value: '('
     }, {
       type: 'StringIdentifier'
     }, {
@@ -57,8 +57,8 @@ describe('tokenizer', function () {
     }, {
       type: 'StringIdentifier'
     }, {
-      type: 'paren',
-      paren: ')'
+      type: 'Parenthesis',
+      value: ')'
     } ],
     '123.23': [ {
       type: 'FloatLiteral',
@@ -101,8 +101,8 @@ describe('tokenizer', function () {
       char: ']'
     } ],
     '($ a 5)': [ {
-      type: 'paren',
-      paren: '('
+      type: 'Parenthesis',
+      value: '('
     }, {
       type: 'AssignmentOperator'
     }, {
@@ -112,8 +112,8 @@ describe('tokenizer', function () {
       type: 'NumberLiteral',
       value: '5'
     }, {
-      type: 'paren',
-      paren: ')'
+      type: 'Parenthesis',
+      value: ')'
     } ]
   }
 
