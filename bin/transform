@@ -4,6 +4,7 @@ var path = require('path')
 
 var tokenizer = require('../tokenizer')
 var ast = require('../ast')
+var transform = require('../transform')
 
 var p = process.argv[2]
 
@@ -14,4 +15,4 @@ if(!p) {
 
 var code = fs.readFileSync(path.resolve(process.cwd(), p)).toString()
 
-console.log(JSON.stringify(ast(tokenizer(code)), null, 2))
+console.log(JSON.stringify(transform(ast(tokenizer(code))), null, 2))
