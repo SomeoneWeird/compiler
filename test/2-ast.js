@@ -152,4 +152,27 @@ describe('ast', function () {
     }
     assert.deepEqual(out, expected)
   })
+
+  describe('assignment', function () {
+    it('should generate AST for assignment', function () {
+      var tokens = tokenizer('($ a 5)')
+      assert.deepEqual(ast(tokens), {
+        type: 'Program',
+        body: [ {
+          type: 'Assignment',
+          name: 'a',
+          value: [ {
+            type: 'NumberLiteral',
+            value: 5
+          } ]
+        } ]
+      })
+    })
+    it('should throw for invalid variable name', function () {
+      assert.throws(function () {
+        var tokens = tokenizer('($ 5 5)')
+        ast(tokens)
+      }, /variable names must be strings/)
+    })
+  })
 })

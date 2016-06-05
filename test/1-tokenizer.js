@@ -99,6 +99,21 @@ describe('tokenizer', function () {
     }, {
       type: 'ArrayIdentifier',
       char: ']'
+    } ],
+    '($ a 5)': [ {
+      type: 'paren',
+      paren: '('
+    }, {
+      type: 'AssignmentOperator'
+    }, {
+      type: 'Identifier',
+      name: 'a'
+    }, {
+      type: 'NumberLiteral',
+      value: '5'
+    }, {
+      type: 'paren',
+      paren: ')'
     } ]
   }
 
