@@ -1,6 +1,6 @@
 var assert = require('assert')
 
-var compiler = require('../compiler')
+var compiler = require('../lib/compiler')
 
 describe('regressions', function() {
 

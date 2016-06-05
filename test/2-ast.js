@@ -1,7 +1,7 @@
 var assert = require('assert')
 
-var tokenizer = require('../tokenizer')
-var ast = require('../ast')
+var tokenizer = require('../lib/tokenizer')
+var ast = require('../lib/ast')
 
 describe('ast', function () {
 
